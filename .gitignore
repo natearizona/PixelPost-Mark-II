@@ -1,0 +1,60 @@
+# OS and editor debris
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Runtime caches and logs
+.cache/
+cache/
+tmp/
+temp/
+*.log
+*.pid
+
+# Dependencies and build outputs
+node_modules/
+vendor/
+dist/
+build/
+coverage/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Local databases and container volumes
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+*.dump
+*.tar
+*.tar.gz
+*.tgz
+docker/volumes/
+docker/runtime/
+runtime-testing/databases/
+runtime-testing/logs/
+runtime-testing/tmp/
+
+# Restoration runtime debris
+docker/restoration-workspaces/**/includes/pixelpost.php
+docker/restoration-workspaces/**/images/*
+!docker/restoration-workspaces/**/images/index.html
+docker/restoration-workspaces/**/thumbnails/*
+!docker/restoration-workspaces/**/thumbnails/index.html
+
+# Keep historical archives, extracted source trees, and provenance docs visible to git.
+!archive/
+!archive/original-pixelpost/
+!archive/original-pixelpost/raw/
+!archive/original-pixelpost/extracted/
+!archive/provenance/
+!archive/provenance/**
+
