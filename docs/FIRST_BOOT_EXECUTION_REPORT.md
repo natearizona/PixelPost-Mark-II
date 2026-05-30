@@ -358,6 +358,36 @@ Database version:
 5.5.64-MariaDB-1~trusty
 ```
 
+### MariaDB 5.5 With MAXDB SQL Mode
+
+The lab was reset and rerun with MariaDB 5.5 using:
+
+```text
+--sql-mode=MAXDB,NO_ENGINE_SUBSTITUTION
+```
+
+The active mode was verified:
+
+```text
+PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,MAXDB,NO_KEY_OPTIONS,NO_TABLE_OPTIONS,NO_FIELD_OPTIONS,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+```
+
+Result:
+
+- Installer launch passed.
+- Configuration generation passed.
+- Full database finalization failed at the same version-table line.
+
+Failure:
+
+```text
+MySQL Error: Too big precision 14 specified for 'upgrade_date'. Maximum is 6.
+```
+
+Conclusion:
+
+MariaDB 5.5's MAXDB mode does not provide sufficient compatibility for Pixelpost's `TIMESTAMP(14)` schema.
+
 ### Current Runtime Conclusion
 
 Pixelpost 1.7.3 installer boot and configuration generation work in the isolated lab. Full database initialization does not complete on MariaDB 10.3, MySQL 5.5, or MariaDB 5.5 because the historical schema uses `TIMESTAMP(14)`.
