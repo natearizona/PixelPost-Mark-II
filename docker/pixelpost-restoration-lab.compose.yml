@@ -22,7 +22,7 @@ services:
       traefik.enable: "false"
 
   pixelpost-db:
-    image: mariadb:10.3
+    image: mariadb:5.5
     container_name: pixelpost-db
     restart: "no"
     cpus: 0.50
@@ -51,4 +51,3 @@ networks:
     name: pixelpost-lab-net
     driver: bridge
     internal: false
-

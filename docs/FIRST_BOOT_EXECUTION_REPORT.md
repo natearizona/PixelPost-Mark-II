@@ -136,7 +136,7 @@ A containerized historical runtime scaffold has been added for the next executio
 - `docs/historical-environments/PHP56_APACHE_MARIADB.md`
 - `runtime-testing/FIRST_BOOT_RUNBOOK.md`
 
-The scaffold targets Apache, PHP 5.6, PHP `mysql`/`mysqli`/`gd`/`exif` extensions, and MariaDB 10.3 with strict SQL mode disabled.
+The scaffold initially targeted Apache, PHP 5.6, PHP `mysql`/`mysqli`/`gd`/`exif` extensions, and MariaDB 10.3 with strict SQL mode disabled.
 
 Local verification performed:
 
@@ -149,3 +149,221 @@ bash -n tools/reset-first-boot-workspace.sh
 ```
 
 The reset helper passed shell syntax validation and successfully recreated a disposable Pixelpost 1.7.3 first-boot workspace. Docker execution remains untested in this shell because no container runtime is currently available.
+
+## 2026-05-30 VPS Restoration Lab Execution
+
+Target VPS:
+
+```text
+2.24.122.151
+```
+
+Runtime:
+
+- Docker 29.4.3
+- Docker Compose 5.1.3
+- `pixelpost-php`: Apache with PHP 5.6, `mysql`, `mysqli`, GD, EXIF, and rewrite enabled
+- `pixelpost-db`: MariaDB 10.3
+
+Preservation handling:
+
+- Source specimen copied to `/opt/pixelpost-restoration-lab/archive-readonly/pixelpost-1.7.3`.
+- Archive specimen permissions set read-only with `chmod -R a-w`.
+- Disposable runtime workspace created at `/opt/pixelpost-restoration-lab/workspaces/pixelpost-1.7.3-first-boot`.
+- Workspace owned by container web user `33:33`.
+
+Container build notes:
+
+The first PHP image build failed because the retired Debian Stretch package sources in `php:5.6-apache` were no longer available from live Debian mirrors:
+
+```text
+E: Failed to fetch http://deb.debian.org/debian/dists/stretch/main/binary-amd64/Packages 404 Not Found
+E: Failed to fetch http://security.debian.org/debian-security/dists/stretch/updates/main/binary-amd64/Packages 404 Not Found
+```
+
+The Dockerfile was adjusted to use `archive.debian.org`, remove unavailable retired security/update channels, and allow archived unauthenticated package metadata. This is a container-build accommodation only; no Pixelpost source files were patched.
+
+Successful build installed and enabled:
+
+```text
+mysql
+mysqli
+gd
+exif
+Apache rewrite
+```
+
+First installer GET:
+
+```text
+URL: http://127.0.0.1:18080/admin/install.php
+HTTP status: 200
+```
+
+Observed first visible Pixelpost runtime warning:
+
+```text
+Deprecated: Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 358
+```
+
+Additional warnings appeared from the same deprecated function on lines 157 and 158 while rendering installer language options.
+
+Apache log observation:
+
+```text
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.16.8.3. Set the 'ServerName' directive globally to suppress this message
+```
+
+MariaDB observation:
+
+```text
+Version: '10.3.39-MariaDB-1:10.3.39+maria~ubu2004'
+mysqld: ready for connections
+```
+
+Updated execution matrix:
+
+| Check | Result | Notes |
+| --- | --- | --- |
+| Installer boots | Passed | `admin/install.php` returned HTTP 200 over localhost-only binding. |
+| Admin panel loads | Not executed | Requires installer submission and generated configuration. |
+| Database initialization works | Not executed | Installer form has not been submitted. |
+| Uploads function | Not executed | Requires completed install. |
+| Thumbnail generation functions | Not executed | Requires completed install and test image upload. |
+| EXIF extraction functions | Not executed | Requires completed install and EXIF fixture upload. |
+| Runtime warnings/errors | Partially captured | `ereg_replace()` deprecations and Apache `ServerName` warning recorded. |
+
+Current status:
+
+First non-destructive runtime boot succeeded. The next step is a controlled installer submission inside the disposable workspace and isolated database.
+
+## 2026-05-30 Installer Submission Attempts
+
+The installer was submitted through Pixelpost's own historical form flow inside disposable workspaces. No Pixelpost source files were patched.
+
+Common test values:
+
+- Database host: `pixelpost-db`
+- Database name: `pixelpost`
+- Database user: `pixelpost`
+- Table prefix: `pixelpost_`
+- Admin user: `archivist`
+- Site URL: `http://127.0.0.1:18080/`
+
+### MariaDB 10.3
+
+Result:
+
+- Requirements page returned HTTP 200.
+- Database credential test returned HTTP 200.
+- Administrator validation returned HTTP 200.
+- Settings validation returned HTTP 200.
+- Configuration step returned HTTP 200 and wrote `includes/pixelpost.php`.
+- Finalize returned HTTP 200 but halted during schema creation.
+
+Created tables before failure:
+
+```text
+pixelpost_categories
+pixelpost_comments
+pixelpost_config
+pixelpost_pixelpost
+pixelpost_visitors
+```
+
+Failure:
+
+```text
+MySQL Error: Too big precision 14 specified for 'upgrade_date'. Maximum is 6
+```
+
+Source location:
+
+```text
+includes/create_tables.php:126
+`upgrade_date` TIMESTAMP(14) NOT NULL
+```
+
+### MySQL 5.5
+
+Official `mysql:5.0` and `mysql:5.1` images were unavailable:
+
+```text
+docker.io/library/mysql:5.0: not found
+docker.io/library/mysql:5.1: not found
+```
+
+The `mysql:5.5` image was available and tested.
+
+Result:
+
+- Configuration writing succeeded.
+- Initial tables were created.
+- Version table was not created.
+- Admin URL returned HTTP 302 after the partial install.
+
+Failure:
+
+```text
+MySQL Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(14) NOT NULL,
+                 `version` FLOAT NOT NULL DEFAULT '0',
+```
+
+Database version:
+
+```text
+5.5.62
+```
+
+### MariaDB 5.5
+
+The `mariadb:5.5` image was available and tested.
+
+Result:
+
+- Requirements, database, administrator, settings, configuration, and finalize requests each returned HTTP 200.
+- Configuration step reported: `Your configuration has been successfully created and saved. All tests have passed!`
+- `includes/pixelpost.php` was generated in the disposable workspace.
+- Initial tables were created.
+- Version table was not created.
+- Admin URL returned HTTP 302 after the partial install.
+
+Created tables:
+
+```text
+pixelpost_categories
+pixelpost_comments
+pixelpost_config
+pixelpost_pixelpost
+pixelpost_visitors
+```
+
+Counts:
+
+```text
+pixelpost_config: 1
+pixelpost_categories: 1
+pixelpost_pixelpost: 0
+```
+
+Failure:
+
+```text
+MySQL Error: Too big precision 14 specified for 'upgrade_date'. Maximum is 6.
+```
+
+Database version:
+
+```text
+5.5.64-MariaDB-1~trusty
+```
+
+### Current Runtime Conclusion
+
+Pixelpost 1.7.3 installer boot and configuration generation work in the isolated lab. Full database initialization does not complete on MariaDB 10.3, MySQL 5.5, or MariaDB 5.5 because the historical schema uses `TIMESTAMP(14)`.
+
+Next restoration options:
+
+- Build or locate a more historically authentic MySQL 4.1/5.0 runtime.
+- Document a future minimal compatibility shim for `TIMESTAMP(14)` after preservation review.
+- Keep the current source tree untouched until the compatibility doctrine is approved.

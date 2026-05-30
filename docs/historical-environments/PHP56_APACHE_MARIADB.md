@@ -21,9 +21,11 @@ The first test environment targets:
 - Apache HTTPD
 - PHP 5.6
 - PHP `mysql`, `mysqli`, `gd`, and `exif` extensions
-- MariaDB 10.3 with strict SQL mode disabled
+- MariaDB 5.5
 
 PHP 5.6 is not historically exact for early Pixelpost releases, but it is a pragmatic restoration runtime because it still supports the removed `mysql_*` extension while being easier to containerize than PHP 4.x.
+
+Earlier trials used MariaDB 10.3 and MySQL 5.5. Both, along with MariaDB 5.5, rejected Pixelpost's `TIMESTAMP(14)` version-table definition during full installer finalization. This environment currently documents that compatibility boundary rather than patching the source.
 
 ## Files
 
@@ -40,4 +42,3 @@ PHP 5.6 is not historically exact for early Pixelpost releases, but it is a prag
 - Use disposable copies under `docker/restoration-workspaces/`.
 - Do not commit generated `includes/pixelpost.php`, uploaded images, thumbnails, databases, or runtime logs.
 - Record failures verbatim in `docs/FIRST_BOOT_EXECUTION_REPORT.md`.
-

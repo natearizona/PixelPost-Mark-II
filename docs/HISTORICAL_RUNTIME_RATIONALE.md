@@ -34,7 +34,7 @@ This would most closely match the era in which Pixelpost 1.7.3 was used.
 
 ## Practical Container Environment
 
-The first practical container target is:
+The first practical container target was:
 
 - Apache via `php:5.6-apache`
 - PHP 5.6
@@ -45,10 +45,16 @@ The first practical container target is:
 
 PHP 5.6 is not perfectly historical, but it is old enough to retain the removed `mysql_*` extension and new enough to be containerized with less archaeology than PHP 4.x or PHP 5.2.
 
+After first-boot testing, the active lab database target was revised to:
+
+- MariaDB 5.5
+
+MariaDB 10.3, MySQL 5.5, and MariaDB 5.5 all reject Pixelpost 1.7.3's historical `TIMESTAMP(14)` schema syntax during version-table creation. Official `mysql:5.0` and `mysql:5.1` images were not available from Docker Hub during this run. A more authentic MySQL 4.1/5.0 environment may require a custom archival image or VM rather than a current official Docker image.
+
 ## Required Compromises
 
 - PHP 5.6 is newer than the original minimum PHP 4.3 target.
-- MariaDB 10.3 is newer than original MySQL 3.24/4.x/5.0 assumptions.
+- MariaDB 5.5 is newer than original MySQL 3.24/4.x/5.0 assumptions and still too modern for `TIMESTAMP(14)`.
 - Debian Jessie package archives may be needed for old PHP container builds.
 - Container networking differs from shared hosting.
 - Database hostname will be `pixelpost-db`/Compose service name rather than `localhost`.
@@ -59,4 +65,3 @@ PHP 5.6 is not perfectly historical, but it is old enough to retain the removed 
 The runtime may be adjusted to emulate historical hosting, but Pixelpost source must not be patched during the restoration phase.
 
 Any runtime workaround must be documented as an environmental compromise, not as a source modernization.
-
