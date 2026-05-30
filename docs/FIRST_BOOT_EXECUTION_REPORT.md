@@ -122,3 +122,30 @@ When a container runtime is available, run this sequence for each release:
 ## Status
 
 First-boot execution is blocked pending runtime/container availability. Preservation and restoration workspace separation are complete.
+
+## 2026-05-30 Update
+
+A containerized historical runtime scaffold has been added for the next execution attempt:
+
+- `docker/compose.pixelpost.yml`
+- `docker/historical/php56-apache/Dockerfile`
+- `docker/historical/php56-apache/php.ini`
+- `docker/historical/php56-apache/apache-vhost.conf`
+- `docker/pixelpost.env.example`
+- `tools/reset-first-boot-workspace.sh`
+- `docs/historical-environments/PHP56_APACHE_MARIADB.md`
+- `runtime-testing/FIRST_BOOT_RUNBOOK.md`
+
+The scaffold targets Apache, PHP 5.6, PHP `mysql`/`mysqli`/`gd`/`exif` extensions, and MariaDB 10.3 with strict SQL mode disabled.
+
+Local verification performed:
+
+```text
+tools/reset-first-boot-workspace.sh 1.7.3
+reset .../docker/restoration-workspaces/pixelpost-1.7.3-first-boot from .../archive/original-pixelpost/extracted/pixelpost-1.7.3
+
+sh -n tools/reset-first-boot-workspace.sh
+bash -n tools/reset-first-boot-workspace.sh
+```
+
+The reset helper passed shell syntax validation and successfully recreated a disposable Pixelpost 1.7.3 first-boot workspace. Docker execution remains untested in this shell because no container runtime is currently available.

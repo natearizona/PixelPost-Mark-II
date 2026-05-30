@@ -1,0 +1,39 @@
+services:
+  web:
+    build:
+      context: ./historical/php56-apache
+    platform: ${PIXELPOST_PLATFORM:-linux/amd64}
+    ports:
+      - "${PIXELPOST_HTTP_PORT:-8080}:80"
+    volumes:
+      - ./restoration-workspaces/${PIXELPOST_WORKSPACE:-pixelpost-1.7.3-first-boot}:/var/www/html
+      - ./runtime/apache-logs:/var/log/apache2
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PIXELPOST_DB_HOST: db
+      PIXELPOST_DB_NAME: pixelpost
+      PIXELPOST_DB_USER: pixelpost
+      PIXELPOST_DB_PASS: pixelpost
+
+  db:
+    image: mariadb:10.3
+    platform: ${PIXELPOST_PLATFORM:-linux/amd64}
+    command:
+      - --sql-mode=NO_ENGINE_SUBSTITUTION
+      - --character-set-server=utf8
+      - --collation-server=utf8_general_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: pixelpost_root
+      MYSQL_DATABASE: pixelpost
+      MYSQL_USER: pixelpost
+      MYSQL_PASSWORD: pixelpost
+    volumes:
+      - ./runtime/mariadb:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ppixelpost_root"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+

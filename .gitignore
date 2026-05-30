@@ -44,6 +44,8 @@ runtime-testing/logs/
 runtime-testing/tmp/
 
 # Restoration runtime debris
+docker/restoration-workspaces/pixelpost-*-first-boot/
+!docker/restoration-workspaces/.gitkeep
 docker/restoration-workspaces/**/includes/pixelpost.php
 docker/restoration-workspaces/**/images/*
 !docker/restoration-workspaces/**/images/index.html
@@ -57,4 +59,3 @@ docker/restoration-workspaces/**/thumbnails/*
 !archive/original-pixelpost/extracted/
 !archive/provenance/
 !archive/provenance/**
-
