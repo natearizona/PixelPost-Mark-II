@@ -1,0 +1,54 @@
+name: pixelpost-restoration-lab
+
+services:
+  pixelpost-php:
+    build:
+      context: ./php56-apache
+    container_name: pixelpost-php
+    restart: "no"
+    cpus: 0.50
+    mem_limit: 256m
+    ports:
+      - "127.0.0.1:18080:80"
+    volumes:
+      - /opt/pixelpost-restoration-lab/workspaces/pixelpost-1.7.3-first-boot:/var/www/html
+      - /opt/pixelpost-restoration-lab/logs/apache:/var/log/apache2
+    depends_on:
+      pixelpost-db:
+        condition: service_healthy
+    networks:
+      - pixelpost-lab-net
+    labels:
+      traefik.enable: "false"
+
+  pixelpost-db:
+    image: mariadb:10.3
+    container_name: pixelpost-db
+    restart: "no"
+    cpus: 0.50
+    mem_limit: 512m
+    command:
+      - --sql-mode=NO_ENGINE_SUBSTITUTION
+      - --character-set-server=utf8
+      - --collation-server=utf8_general_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: pixelpost_root_local_only
+      MYSQL_DATABASE: pixelpost
+      MYSQL_USER: pixelpost
+      MYSQL_PASSWORD: pixelpost_local_only
+    volumes:
+      - /opt/pixelpost-restoration-lab/db/mariadb:/var/lib/mysql
+    networks:
+      - pixelpost-lab-net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ppixelpost_root_local_only"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+networks:
+  pixelpost-lab-net:
+    name: pixelpost-lab-net
+    driver: bridge
+    internal: false
+
