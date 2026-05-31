@@ -1,0 +1,197 @@
+== containers ==
+NAMES            IMAGE                                     STATUS
+pp-browser-php   pixelpost-restoration-lab-pixelpost-php   Up 15 hours
+pp-browser-db    ggmartinez/mysql:5.1                      Up 15 hours
+== db version ==
+version
+5.1.73
+Variable_name	Value
+sql_mode	
+== config ==
+*************************** 1. row ***************************
+      admin: archivist
+      email: archivist@example.invalid
+   template: simple
+ thumbwidth: 100
+thumbheight: 75
+       exif: T
+== images ==
+*************************** 1. row ***************************
+      id: 1
+datetime: 2026-05-31 02:31:20
+headline: Phase 4 EXIF Test
+   image: 20260531170520_test-image-exif.jpg
+exif_len: 740
+*************************** 2. row ***************************
+      id: 2
+datetime: 2026-05-31 02:35:47
+headline: Phase 4 EXIF Workflow Pass
+   image: 20260531170747_test-image-exif-320x240.jpg
+exif_len: 740
+== exif selected fields ==
+
+Deprecated: mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in Command line code on line 1
+id=1 headline=Phase 4 EXIF Test
+MakeIFD0=PixelPost Lab
+ModelIFD0=RestorationCam 173
+ExposureTimeSubIFD=1/125 sec
+FNumberSubIFD=f 5.6
+DateTimeOriginalSubIFD=2008:01:16 19:24:38
+FlashSubIFD=No Flash
+FocalLengthSubIFD=35 mm
+ISOSpeedRatingsSubIFD=200
+id=2 headline=Phase 4 EXIF Workflow Pass
+MakeIFD0=PixelPost Lab
+ModelIFD0=RestorationCam 173
+ExposureTimeSubIFD=1/125 sec
+FNumberSubIFD=f 5.6
+DateTimeOriginalSubIFD=2008:01:16 19:24:38
+FlashSubIFD=No Flash
+FocalLengthSubIFD=35 mm
+ISOSpeedRatingsSubIFD=200
+== tags ==
+img_id	tag	alt_tag
+1	exif	
+1	phase4	
+1	restoration	
+2	exif	
+2	phase4	
+2	thumbnail	
+id	cat_id	image_id
+1	1	1
+2	1	2
+== files ==
+/opt/pixelpost-restoration-lab/workspaces/browser-validation-1.7.3-20260531T021851Z/images/20260531170520_test-image-exif.jpg 803 bytes
+/opt/pixelpost-restoration-lab/workspaces/browser-validation-1.7.3-20260531T021851Z/images/20260531170747_test-image-exif-320x240.jpg 5970 bytes
+/opt/pixelpost-restoration-lab/workspaces/browser-validation-1.7.3-20260531T021851Z/images/index.html 0 bytes
+/opt/pixelpost-restoration-lab/workspaces/browser-validation-1.7.3-20260531T021851Z/thumbnails/index.html 0 bytes
+/opt/pixelpost-restoration-lab/workspaces/browser-validation-1.7.3-20260531T021851Z/thumbnails/thumb_20260531170520_test-image-exif.jpg 0 bytes
+/opt/pixelpost-restoration-lab/workspaces/browser-validation-1.7.3-20260531T021851Z/thumbnails/thumb_20260531170747_test-image-exif-320x240.jpg 1195 bytes
+== image sizes via php ==
+/var/www/html/images/20260531170520_test-image-exif.jpg 1x1
+/var/www/html/images/20260531170747_test-image-exif-320x240.jpg 320x240
+/var/www/html/images/index.html no-size
+/var/www/html/thumbnails/index.html no-size
+/var/www/html/thumbnails/thumb_20260531170520_test-image-exif.jpg no-size
+/var/www/html/thumbnails/thumb_20260531170747_test-image-exif-320x240.jpg 100x75
+== apache error tail ==
+[Sun May 31 02:27:22.679243 2026] [:error] [pid 19] [client 172.16.9.1:38466] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 158
+[Sun May 31 02:27:22.679260 2026] [:error] [pid 19] [client 172.16.9.1:38466] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 157
+[Sun May 31 02:27:22.679268 2026] [:error] [pid 19] [client 172.16.9.1:38466] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 158
+[Sun May 31 02:27:22.679279 2026] [:error] [pid 19] [client 172.16.9.1:38466] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 157
+[Sun May 31 02:27:22.679286 2026] [:error] [pid 19] [client 172.16.9.1:38466] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 158
+[Sun May 31 02:27:22.679297 2026] [:error] [pid 19] [client 172.16.9.1:38466] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 157
+[Sun May 31 02:27:22.679304 2026] [:error] [pid 19] [client 172.16.9.1:38466] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 158
+[Sun May 31 02:27:22.679318 2026] [:error] [pid 19] [client 172.16.9.1:38466] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 157
+[Sun May 31 02:27:22.679324 2026] [:error] [pid 19] [client 172.16.9.1:38466] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 158
+[Sun May 31 02:27:37.742898 2026] [:error] [pid 17] [client 172.16.9.1:33006] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 358
+[Sun May 31 02:27:37.743428 2026] [:error] [pid 17] [client 172.16.9.1:33006] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 157
+[Sun May 31 02:27:37.743445 2026] [:error] [pid 17] [client 172.16.9.1:33006] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 158
+[Sun May 31 02:27:37.743461 2026] [:error] [pid 17] [client 172.16.9.1:33006] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 157
+[Sun May 31 02:27:37.743469 2026] [:error] [pid 17] [client 172.16.9.1:33006] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 158
+[Sun May 31 02:27:37.743480 2026] [:error] [pid 17] [client 172.16.9.1:33006] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 157
+[Sun May 31 02:27:37.743487 2026] [:error] [pid 17] [client 172.16.9.1:33006] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 158
+[Sun May 31 02:27:37.743498 2026] [:error] [pid 17] [client 172.16.9.1:33006] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 157
+[Sun May 31 02:27:37.743504 2026] [:error] [pid 17] [client 172.16.9.1:33006] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 158
+[Sun May 31 02:27:37.743527 2026] [:error] [pid 17] [client 172.16.9.1:33006] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 157
+[Sun May 31 02:27:37.743532 2026] [:error] [pid 17] [client 172.16.9.1:33006] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 158
+[Sun May 31 02:27:51.137518 2026] [:error] [pid 16] [client 172.16.9.1:39220] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 358, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=introduction
+[Sun May 31 02:28:02.377485 2026] [:error] [pid 18] [client 172.16.9.1:43614] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 358, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=requirements
+[Sun May 31 02:28:03.301961 2026] [:error] [pid 18] [client 172.16.9.1:43614] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 358, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379035 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 358, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379589 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379606 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379615 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379629 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379636 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379644 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379660 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379667 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379673 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379692 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379697 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379706 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379715 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379720 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379724 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379733 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379738 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379743 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379752 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379757 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379762 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379771 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379776 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379781 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379798 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379803 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379807 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379816 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379821 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379826 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379835 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379840 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379844 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379853 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379876 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379883 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.379901 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.380101 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.380107 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.380146 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.380152 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:14.380165 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=database
+[Sun May 31 02:28:15.018355 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 358, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019018 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019044 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019056 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019077 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019087 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019100 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019128 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019141 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019155 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019191 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019200 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019217 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019228 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019234 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019239 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019248 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019253 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019258 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019268 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019272 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019277 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019286 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019291 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019296 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019310 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019315 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019323 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019332 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019337 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019342 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019351 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019356 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019360 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019558 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019564 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019569 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019586 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019592 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019596 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019630 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 183, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019639 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 184, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:15.019643 2026] [:error] [pid 21] [client 172.16.9.1:38056] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 185, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:30.828596 2026] [:error] [pid 22] [client 172.16.9.1:54868] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 358, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=administrator
+[Sun May 31 02:28:31.178116 2026] [:error] [pid 22] [client 172.16.9.1:54868] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 358, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=settings
+[Sun May 31 02:28:31.486774 2026] [:error] [pid 22] [client 172.16.9.1:54868] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 358, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=settings
+[Sun May 31 02:28:31.487207 2026] [:error] [pid 22] [client 172.16.9.1:54868] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 283, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=settings
+[Sun May 31 02:28:31.487225 2026] [:error] [pid 22] [client 172.16.9.1:54868] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 284, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=settings
+[Sun May 31 02:28:39.882493 2026] [:error] [pid 23] [client 172.16.9.1:57902] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 358, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=configuration
+[Sun May 31 02:28:39.883084 2026] [:error] [pid 23] [client 172.16.9.1:57902] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 283, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=configuration
+[Sun May 31 02:28:39.883101 2026] [:error] [pid 23] [client 172.16.9.1:57902] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 284, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=configuration
+[Sun May 31 02:28:39.883110 2026] [:error] [pid 23] [client 172.16.9.1:57902] PHP Notice:  Undefined variable: admin_user in /var/www/html/admin/install/install_functions.php on line 1017, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=configuration
+[Sun May 31 02:28:39.888563 2026] [:error] [pid 23] [client 172.16.9.1:57902] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 283, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=configuration
+[Sun May 31 02:28:39.888585 2026] [:error] [pid 23] [client 172.16.9.1:57902] PHP Deprecated:  Function ereg_replace() is deprecated in /var/www/html/admin/install/install_functions.php on line 284, referer: http://127.0.0.1:18082/admin/install.php?view=install&cat=configuration

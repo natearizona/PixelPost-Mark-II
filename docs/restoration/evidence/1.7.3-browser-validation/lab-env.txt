@@ -1,0 +1,4 @@
+RUN_DIR=/opt/pixelpost-restoration-lab/reports/browser-validation-1.7.3-20260531T021851Z
+WORKSPACE=/opt/pixelpost-restoration-lab/workspaces/browser-validation-1.7.3-20260531T021851Z
+DBDIR=/opt/pixelpost-restoration-lab/db/browser-validation-1.7.3-20260531T021851Z
+URL=http://127.0.0.1:18082
