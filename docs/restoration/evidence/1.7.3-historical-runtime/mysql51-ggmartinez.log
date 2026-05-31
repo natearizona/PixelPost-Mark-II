@@ -1,0 +1,155 @@
+===== candidate=mysql51-ggmartinez image=ggmartinez/mysql:5.1 mode=default =====
+timestamp=2026-05-31T01:56:12Z
+php_image=pixelpost-restoration-lab-pixelpost-php
+template parsing error: template: :1:57: executing "" at <.Config.Entrypoint>: map has no entry for key "Entrypoint"
+image_inspect=
+archive_sha256=8498093b0f50c9f03cf56191cec1b9fb4f52649aac9451abf85682c6424bd05b
+raw_archive_sha256=0553abce0a647ff226d117de0893f903697910761aabf680fad5ce3ed693d98a
+156707be1bdb90192bc4665ab314db9efb9e699dbbf9a26a87e22d91d8c6a827
+db_container_started=pp-histdb-mysql51-ggmartinez
+db_ready=1
+db_version_begin
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+version
+5.1.73
+Variable_name	Value
+sql_mode	
+Variable_name	Value
+old_passwords	OFF
+db_version_end
+db_bootstrap_begin
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+Database (pixelpost)
+pixelpost
+db_bootstrap_end
+RUNNER_START
+php_version=5.6.40
+root=/work
+dbhost=db
+dbname=pixelpost
+prefix=pixelpost_
+mysql_ext=yes
+gd_ext=yes
+pcre_utf8=yes
+
+Deprecated: mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /reports/schema-finalize-runner.php on line 73
+PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /reports/schema-finalize-runner.php on line 73
+db_server=5.1.73
+db_client=mysqlnd 5.0.11-dev - 20120503 - $Id: 76b08b24596e12d4553bd41fc93cccd5bac2fe7a $
+
+Deprecated: Function eregi_replace() is deprecated in /work/admin/install/install_functions.php on line 44
+PHP Deprecated:  Function eregi_replace() is deprecated in /work/admin/install/install_functions.php on line 44
+
+Warning: Cannot modify header information - headers already sent by (output started at /reports/schema-finalize-runner.php:62) in /work/admin/install/install_functions.php on line 45
+
+Deprecated: Function eregi_replace() is deprecated in /work/admin/install/install_functions.php on line 54
+PHP Warning:  Cannot modify header information - headers already sent by (output started at /reports/schema-finalize-runner.php:62) in /work/admin/install/install_functions.php on line 45
+PHP Deprecated:  Function eregi_replace() is deprecated in /work/admin/install/install_functions.php on line 54
+PHP Deprecated:  Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 358
+
+Deprecated: Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 358
+PHP Deprecated:  Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 283
+PHP Deprecated:  Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 284
+schema_output_begin
+
+Deprecated: Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 283
+
+Deprecated: Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 284
+
+schema_output_end
+installed_version_after_schema=1.73
+installed_version_after_store_vars=1.73
+tables=pixelpost_addons,pixelpost_catassoc,pixelpost_categories,pixelpost_comments,pixelpost_config,pixelpost_pixelpost,pixelpost_tags,pixelpost_version,pixelpost_visitors
+version_rows_begin
+1|2026-05-31 01:56:20|1.4
+2|2026-05-31 01:56:20|1.41
+3|2026-05-31 01:56:20|1.49995
+4|2026-05-31 01:56:20|1.59
+5|2026-05-31 01:56:20|1.6
+6|2026-05-31 01:56:20|1.7
+7|2026-05-31 01:56:20|1.71
+8|2026-05-31 01:56:20|1.72
+9|2026-05-31 01:56:20|1.73
+version_rows_end
+warnings_begin
+warnings_end
+RUNNER_DONE
+runner_exit=0
+tables_after_runner=
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+Tables_in_pixelpost
+pixelpost_addons
+pixelpost_catassoc
+pixelpost_categories
+pixelpost_comments
+pixelpost_config
+pixelpost_pixelpost
+pixelpost_tags
+pixelpost_version
+pixelpost_visitors
+id	upgrade_date	version
+1	2026-05-31 01:56:20	1.4
+2	2026-05-31 01:56:20	1.41
+3	2026-05-31 01:56:20	1.49995
+4	2026-05-31 01:56:20	1.59
+5	2026-05-31 01:56:20	1.6
+6	2026-05-31 01:56:20	1.7
+7	2026-05-31 01:56:20	1.71
+8	2026-05-31 01:56:20	1.72
+9	2026-05-31 01:56:20	1.73
+db_logs_tail_begin
+chown: cannot access `/var/lib/mysql_auxiliar': No such file or directory
+Installing MySQL system tables...
+OK
+Filling help tables...
+OK
+
+To start mysqld at boot time you have to copy
+support-files/mysql.server to the right place for your system
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
+To do so, start the server, then issue the following commands:
+
+/usr/bin/mysqladmin -u root password 'new-password'
+/usr/bin/mysqladmin -u root -h 156707be1bdb password 'new-password'
+
+Alternatively you can run:
+/usr/bin/mysql_secure_installation
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the manual for more instructions.
+
+You can start the MySQL daemon with:
+cd /usr ; /usr/bin/mysqld_safe &
+
+You can test the MySQL daemon with mysql-test-run.pl
+cd /usr/mysql-test ; perl mysql-test-run.pl
+
+Please report any problems with the /usr/bin/mysqlbug script!
+
+260531  1:56:13  InnoDB: Initializing buffer pool, size = 8.0M
+260531  1:56:13  InnoDB: Completed initialization of buffer pool
+InnoDB: The first specified data file ./ibdata1 did not exist:
+InnoDB: a new database to be created!
+260531  1:56:13  InnoDB: Setting file ./ibdata1 size to 10 MB
+InnoDB: Database physically writes the file full: wait...
+260531  1:56:13  InnoDB: Log file ./ib_logfile0 did not exist: new to be created
+InnoDB: Setting log file ./ib_logfile0 size to 5 MB
+InnoDB: Database physically writes the file full: wait...
+260531  1:56:13  InnoDB: Log file ./ib_logfile1 did not exist: new to be created
+InnoDB: Setting log file ./ib_logfile1 size to 5 MB
+InnoDB: Database physically writes the file full: wait...
+InnoDB: Doublewrite buffer not found: creating new
+InnoDB: Doublewrite buffer created
+InnoDB: Creating foreign key constraint system tables
+InnoDB: Foreign key constraint system tables created
+260531  1:56:13  InnoDB: Started; log sequence number 0 0
+260531  1:56:13 [Note] Event Scheduler: Loaded 0 events
+260531  1:56:13 [Note] /usr/libexec/mysqld: ready for connections.
+Version: '5.1.73'  socket: '/var/lib/mysql/mysql.sock'  port: 3306  Source distribution
+db_logs_tail_end
+candidate_result=0

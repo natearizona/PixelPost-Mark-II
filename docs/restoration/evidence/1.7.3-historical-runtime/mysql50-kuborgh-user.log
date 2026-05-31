@@ -1,0 +1,14 @@
+===== candidate=mysql50-kuborgh-user image=pixelpost-lab-mysql-5.0-kuborgh-user:latest mode=default =====
+timestamp=2026-05-31T01:56:11Z
+php_image=pixelpost-restoration-lab-pixelpost-php
+image_inspect=id=sha256:24313de2ee3c2df9253a516f42120a61f8d0f176148e2a04a1f3294e5f18c050 created=2026-05-31T01:55:39.313839748Z entrypoint=["/mysql/entrypoint.sh"] cmd=["/mysql/bin/mysqld_safe","--user=mysql"]
+archive_sha256=8498093b0f50c9f03cf56191cec1b9fb4f52649aac9451abf85682c6424bd05b
+raw_archive_sha256=0553abce0a647ff226d117de0893f903697910761aabf680fad5ce3ed693d98a
+a3e2065f1e404b696d52e0b545720f16873dac444ed4ba20658a5f6869669b61
+db_container_started=pp-histdb-mysql50-kuborgh-user
+db_ready=0
+DB_NOT_READY
+Starting mysqld daemon with databases from /mysql/data
+STOPPING server from pid file /mysql/data/a3e2065f1e40.pid
+260531 01:56:12  mysqld ended
+

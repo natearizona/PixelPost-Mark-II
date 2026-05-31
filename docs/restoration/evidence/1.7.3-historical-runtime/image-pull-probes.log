@@ -1,0 +1,94 @@
+===== docker pull mtirsel/mysql-5.1:latest =====
+Error response from daemon: not implemented: media type "application/vnd.docker.distribution.manifest.v1+prettyjws" is no longer supported since containerd v2.1, please rebuild the image as "application/vnd.docker.distribution.manifest.v2+json" or "application/vnd.oci.image.manifest.v1+json"
+docker_status=1
+
+Error response from daemon: No such image: mtirsel/mysql-5.1:latest
+===== docker pull ggmartinez/mysql:5.1 =====
+5.1: Pulling from ggmartinez/mysql
+929848abfbec: Pulling fs layer
+4b8e8fa2d014: Pulling fs layer
+b639d669fe50: Pulling fs layer
+ff50d722b382: Pulling fs layer
+e1afcd36f5dc: Pulling fs layer
+4b8e8fa2d014: Download complete
+929848abfbec: Download complete
+b639d669fe50: Download complete
+ff50d722b382: Download complete
+e1afcd36f5dc: Download complete
+b639d669fe50: Pull complete
+ff50d722b382: Pull complete
+4b8e8fa2d014: Pull complete
+929848abfbec: Pull complete
+e1afcd36f5dc: Pull complete
+Digest: sha256:db6468ed7a662a0efd5aee985b9e5a0c5b6c43732bc22c72a950624ba3349ba2
+Status: Downloaded newer image for ggmartinez/mysql:5.1
+docker.io/ggmartinez/mysql:5.1
+docker_status=0
+image=[ggmartinez/mysql:5.1] id=sha256:db6468ed7a662a0efd5aee985b9e5a0c5b6c43732bc22c72a950624ba3349ba2 created=2025-05-20T22:30:06.899273459-03:00
+===== docker pull tommi2day/mysql51:latest =====
+latest: Pulling from tommi2day/mysql51
+684a494183bc: Pulling fs layer
+bccd10f490ab: Pulling fs layer
+575d42a68f78: Pulling fs layer
+66be124caf11: Pulling fs layer
+570379c12284: Pulling fs layer
+6a89d44ca95e: Pulling fs layer
+3038ed2f93a8: Pulling fs layer
+4bf7dd79cbcc: Pulling fs layer
+ede97f8b8404: Pulling fs layer
+684a494183bc: Pulling fs layer
+570379c12284: Download complete
+ede97f8b8404: Download complete
+684a494183bc: Download complete
+3038ed2f93a8: Download complete
+6a89d44ca95e: Download complete
+bccd10f490ab: Download complete
+66be124caf11: Download complete
+4bf7dd79cbcc: Download complete
+575d42a68f78: Download complete
+bccd10f490ab: Pull complete
+575d42a68f78: Pull complete
+66be124caf11: Pull complete
+570379c12284: Pull complete
+3038ed2f93a8: Pull complete
+6a89d44ca95e: Pull complete
+ede97f8b8404: Pull complete
+ede97f8b8404: Pull complete
+684a494183bc: Pull complete
+4bf7dd79cbcc: Pull complete
+Digest: sha256:9692879f2f1b49cfbf4e7b0020f147ac2dc8c71d677f85a380ffaa9ff1c2eb8b
+Status: Downloaded newer image for tommi2day/mysql51:latest
+docker.io/tommi2day/mysql51:latest
+docker_status=0
+image=[tommi2day/mysql51:latest] id=sha256:9692879f2f1b49cfbf4e7b0020f147ac2dc8c71d677f85a380ffaa9ff1c2eb8b created=2024-04-02T09:55:44.880390316Z
+===== docker pull kuborgh/mysql-5.0:latest =====
+latest: Pulling from kuborgh/mysql-5.0
+835bca0fd86d: Pulling fs layer
+d8868e50ac4c: Pulling fs layer
+83251ac64627: Pulling fs layer
+589bba2f1b36: Pulling fs layer
+d62ecaceda39: Pulling fs layer
+6d93b41cfc6b: Pulling fs layer
+5afbf172d1c2: Pulling fs layer
+6d0e119604f6: Pulling fs layer
+d62ecaceda39: Download complete
+83251ac64627: Download complete
+589bba2f1b36: Download complete
+6d93b41cfc6b: Download complete
+835bca0fd86d: Download complete
+6d0e119604f6: Download complete
+d8868e50ac4c: Download complete
+83251ac64627: Pull complete
+589bba2f1b36: Pull complete
+d8868e50ac4c: Pull complete
+d62ecaceda39: Pull complete
+6d93b41cfc6b: Pull complete
+5afbf172d1c2: Download complete
+835bca0fd86d: Pull complete
+6d0e119604f6: Pull complete
+5afbf172d1c2: Pull complete
+Digest: sha256:467bc4ad7db43010a018b3e6e9dc4a88f8befe786b1be4e2d2018e8ebdfad1b0
+Status: Downloaded newer image for kuborgh/mysql-5.0:latest
+docker.io/kuborgh/mysql-5.0:latest
+docker_status=0
+image=[kuborgh/mysql-5.0:latest] id=sha256:467bc4ad7db43010a018b3e6e9dc4a88f8befe786b1be4e2d2018e8ebdfad1b0 created=2017-05-15T11:01:35.742875815Z

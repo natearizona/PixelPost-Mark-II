@@ -1,0 +1,15 @@
+===== candidate=mysql50-kuborgh image=kuborgh/mysql-5.0:latest mode=default =====
+timestamp=2026-05-31T01:49:46Z
+php_image=pixelpost-restoration-lab-pixelpost-php
+image_inspect=id=sha256:467bc4ad7db43010a018b3e6e9dc4a88f8befe786b1be4e2d2018e8ebdfad1b0 created=2017-05-15T11:01:35.742875815Z entrypoint=["/mysql/entrypoint.sh"] cmd=["/mysql/bin/mysqld_safe","--user=mysql"]
+archive_sha256=8498093b0f50c9f03cf56191cec1b9fb4f52649aac9451abf85682c6424bd05b
+raw_archive_sha256=0553abce0a647ff226d117de0893f903697910761aabf680fad5ce3ed693d98a
+86fbd134b51a75ee902f6496827b0d8165b6683396e6c79de85c119a3721d216
+db_container_started=pp-histdb-mysql50-kuborgh
+db_ready=0
+DB_NOT_READY
+Starting mysqld daemon with databases from /mysql/data
+chown: invalid user: `mysql'
+STOPPING server from pid file /mysql/data/86fbd134b51a.pid
+260531 01:49:46  mysqld ended
+
