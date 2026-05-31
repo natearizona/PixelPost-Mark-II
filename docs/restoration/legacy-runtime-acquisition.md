@@ -39,7 +39,6 @@ These references are acquisition leads, not historical authority. Runtime eviden
 - MySQL 5.0 wrapper failure: `docs/restoration/evidence/1.7.3-historical-runtime/mysql50-kuborgh-user.log`
 - MySQL 5.1 success: `docs/restoration/evidence/1.7.3-historical-runtime/mysql51-ggmartinez.log`
 - Alternate MySQL 5.1 failure: `docs/restoration/evidence/1.7.3-historical-runtime/mysql51-tommi2day.log`
-- Command transcript: `docs/restoration/evidence/1.7.3-historical-runtime/command-transcript.md`
 
 ## Decision
 

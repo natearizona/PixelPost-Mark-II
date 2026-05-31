@@ -2,7 +2,7 @@
 
 Question: Can unmodified Pixelpost 1.7.3 initialize its database through installer finalization version `1.73`?
 
-Short answer: not with the practical legacy database images currently available in the lab. MySQL 5.5 and MariaDB 5.5 both run the installer chain but fail when the unmodified source attempts to create `{prefix}version` with `upgrade_date TIMESTAMP(14) NOT NULL`.
+Short answer: not with the practical legacy database images currently available in the lab. MariaDB 10.3, MySQL 5.5, MariaDB 5.5, and MariaDB 5.5 with MAXDB SQL mode all run the installer chain but fail when the unmodified source attempts to create `{prefix}version` with `upgrade_date TIMESTAMP(14) NOT NULL`. The MAXDB compatibility mode was tested as a potential workaround and confirmed not sufficient.
 
 ## Scope
 
@@ -46,6 +46,8 @@ PHP 5.2 was preferred but not available as an official Docker image. PHP 5.3 and
 | MySQL 5.1 | Not tested | Official `mysql:5.1` image unavailable: tag not found. |
 | MySQL 5.5 | Tested | Official `mysql:5.5`, digest `sha256:12da85ab88aedfdf39455872fb044f607c32fdc233cd59f1d26769fbf439b045`. |
 | MariaDB 5.5 | Tested as fallback | Official `mariadb:5.5`, digest `sha256:8665c074af5a5fb7e04b9570fcf8551e9d82955182be50375d5013838d4f9137`. |
+| MariaDB 5.5 + MAXDB mode | Tested as compatibility workaround | Same image as MariaDB 5.5 above; started with `--sql-mode=MAXDB,NO_ENGINE_SUBSTITUTION`. |
+| MariaDB 10.3 | Tested as initial runtime candidate | Official `mariadb:10.3`, version `10.3.39-MariaDB-1:10.3.39+maria~ubu2004`. |
 
 ## Pass/Fail Matrix
 
@@ -56,6 +58,8 @@ PHP 5.2 was preferred but not available as an official Docker image. PHP 5.3 and
 | MySQL 5.1 | Not tested | Not tested | Not tested | Not tested | Blocked | Official Docker image unavailable. A source-built or preserved binary runtime is needed. |
 | MySQL 5.5.62 | PHP 5.6.40 | Yes | No | No | Fail | Installer chain runs until `{prefix}version`; MySQL rejects `TIMESTAMP(14)` as SQL syntax. |
 | MariaDB 5.5.64 | PHP 5.6.40 | Yes | No | No | Fail | Installer chain runs until `{prefix}version`; MariaDB rejects precision 14 with maximum 6. |
+| MariaDB 5.5.64 + MAXDB | PHP 5.6.40 | Yes | No | No | Fail | MAXDB mode active and verified; installer still fails at same `{prefix}version` line. MAXDB compatibility does not resolve `TIMESTAMP(14)`. |
+| MariaDB 10.3.39 | PHP 5.6.40 | Yes | No | No | Fail | First runtime tested; installer chain runs through configuration step; fails at `{prefix}version` with same precision error. |
 
 ## MySQL 5.5 Result
 
@@ -155,6 +159,72 @@ ERROR 1146 (42S02) at line 1: Table 'pixelpost.pixelpost_version' doesn't exist
 
 Interpretation: MariaDB 5.5 behaves like the modern MariaDB failure already observed: it allows partial schema creation but rejects `TIMESTAMP(14)`.
 
+## MariaDB 5.5 With MAXDB SQL Mode Result
+
+SQL mode applied:
+
+```text
+--sql-mode=MAXDB,NO_ENGINE_SUBSTITUTION
+```
+
+Active mode verified before test:
+
+```text
+PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,MAXDB,NO_KEY_OPTIONS,NO_TABLE_OPTIONS,NO_FIELD_OPTIONS,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+```
+
+Observed failure:
+
+```text
+MySQL Error: Too big precision 14 specified for 'upgrade_date'. Maximum is 6.
+```
+
+Interpretation: MAXDB compatibility mode was tested as a potential workaround for the `TIMESTAMP(14)` rejection. The mode was confirmed active. Installer launch and configuration generation passed. Full database finalization failed at the same `{prefix}version` line. MAXDB mode does not provide sufficient compatibility for the unmodified Pixelpost 1.7.3 schema.
+
+## MariaDB 10.3 Result
+
+Evidence: tested as the initial runtime candidate before lower-version fallbacks were attempted.
+
+Observed database version:
+
+```text
+10.3.39-MariaDB-1:10.3.39+maria~ubu2004
+```
+
+Installer chain result:
+
+- Requirements page: HTTP 200.
+- Database credential test: HTTP 200.
+- Administrator validation: HTTP 200.
+- Settings validation: HTTP 200.
+- Configuration step: HTTP 200; wrote `includes/pixelpost.php`.
+- Finalize: HTTP 200; halted during schema creation.
+
+Tables created before failure:
+
+```text
+pixelpost_categories
+pixelpost_comments
+pixelpost_config
+pixelpost_pixelpost
+pixelpost_visitors
+```
+
+Observed failure:
+
+```text
+MySQL Error: Too big precision 14 specified for 'upgrade_date'. Maximum is 6.
+```
+
+Source location confirmed:
+
+```text
+includes/create_tables.php:126
+`upgrade_date` TIMESTAMP(14) NOT NULL
+```
+
+Interpretation: MariaDB 10.3 behavior is identical to MariaDB 5.5 for this failure path. The installer runs further than a completely incompatible runtime would, but the schema halts at `{prefix}version`. The error message and source location match every other tested modern or near-modern runtime.
+
 ## Runtime Warnings
 
 The PHP runtime produced compatibility warnings before the database blocker:
@@ -192,10 +262,6 @@ docker run -d --name pp-dbcompat-mysql55 --network pp-dbcompat-net-mysql55 --net
 cp -a /opt/pixelpost-restoration-lab/archive-readonly/pixelpost-1.7.3/. /opt/pixelpost-restoration-lab/workspaces/dbcompat-1.7.3-mysql55/
 docker run --rm --network pp-dbcompat-net-mysql55 -v /opt/pixelpost-restoration-lab/workspaces/dbcompat-1.7.3-mysql55:/work -v /opt/pixelpost-restoration-lab/reports/dbcompat-1.7.3-20260531T000320Z:/reports pixelpost-restoration-lab-pixelpost-php php /reports/schema-finalize-runner.php /work db pixelpost pixelpost pixelpostpass pixelpost_
 ```
-
-Full command transcript:
-
-- `docs/restoration/evidence/1.7.3-database-compatibility/command-transcript.md`
 
 ## Required Final Answers
 
