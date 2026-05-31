@@ -1,0 +1,146 @@
+===== candidate=mariadb55 image=mariadb:5.5 =====
+timestamp=2026-05-31T00:03:35Z
+php_image=pixelpost-restoration-lab-pixelpost-php
+archive_sha256=8498093b0f50c9f03cf56191cec1b9fb4f52649aac9451abf85682c6424bd05b
+raw_archive_sha256=0553abce0a647ff226d117de0893f903697910761aabf680fad5ce3ed693d98a
+6d22862f346750f6d57b2964ff4fedcbbb5b9d3bad59c00cff5b3443e419fc2c
+415f553ba0ea49da7c9a53d9c4dd72dcb3e262c0f9cb63061a3c0d19ea510ef1
+db_container_started=pp-dbcompat-mariadb55
+db_ready=1
+version
+5.5.64-MariaDB-1~trusty
+Variable_name	Value
+sql_mode	
+RUNNER_START
+php_version=5.6.40
+root=/work
+dbhost=db
+dbname=pixelpost
+prefix=pixelpost_
+mysql_ext=yes
+gd_ext=yes
+pcre_utf8=yes
+PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /reports/schema-finalize-runner.php on line 73
+
+Deprecated: mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /reports/schema-finalize-runner.php on line 73
+db_server=5.5.64-MariaDB-1~trusty
+db_client=mysqlnd 5.0.11-dev - 20120503 - $Id: 76b08b24596e12d4553bd41fc93cccd5bac2fe7a $
+PHP Deprecated:  Function eregi_replace() is deprecated in /work/admin/install/install_functions.php on line 44
+
+Deprecated: Function eregi_replace() is deprecated in /work/admin/install/install_functions.php on line 44
+
+Warning: Cannot modify header information - headers already sent by (output started at /reports/schema-finalize-runner.php:62) in /work/admin/install/install_functions.php on line 45
+
+Deprecated: Function eregi_replace() is deprecated in /work/admin/install/install_functions.php on line 54
+PHP Warning:  Cannot modify header information - headers already sent by (output started at /reports/schema-finalize-runner.php:62) in /work/admin/install/install_functions.php on line 45
+PHP Deprecated:  Function eregi_replace() is deprecated in /work/admin/install/install_functions.php on line 54
+
+Deprecated: Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 358
+PHP Deprecated:  Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 358
+PHP Deprecated:  Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 283
+PHP Deprecated:  Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 284
+
+Deprecated: Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 283
+
+Deprecated: Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 284
+MySQL Error: Too big precision 14 specified for 'upgrade_date'. Maximum is 6.runner_exit=0
+tables_after_runner=
+ERROR 1146 (42S02) at line 1: Table 'pixelpost.pixelpost_version' doesn't exist
+Tables_in_pixelpost
+pixelpost_categories
+pixelpost_comments
+pixelpost_config
+pixelpost_pixelpost
+pixelpost_visitors
+db_logs_tail_begin
+Initializing database
+260531  0:03:36 [Note] /usr/sbin/mysqld (mysqld 5.5.64-MariaDB-1~trusty) starting as process 79 ...
+260531  0:03:36 [Note] /usr/sbin/mysqld (mysqld 5.5.64-MariaDB-1~trusty) starting as process 86 ...
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MariaDB root USER !
+To do so, start the server, then issue the following commands:
+
+'/usr/bin/mysqladmin' -u root password 'new-password'
+'/usr/bin/mysqladmin' -u root -h  password 'new-password'
+
+Alternatively you can run:
+'/usr/bin/mysql_secure_installation'
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the MariaDB Knowledgebase at http://mariadb.com/kb or the
+MySQL manual for more instructions.
+
+Please report any problems at http://mariadb.org/jira
+
+The latest information about MariaDB is available at http://mariadb.org/.
+You can find additional information about the MySQL part at:
+http://dev.mysql.com
+Consider joining MariaDB's strong and vibrant community:
+https://mariadb.org/get-involved/
+
+Database initialized
+MySQL init process in progress...
+260531  0:03:36 [Note] mysqld (mysqld 5.5.64-MariaDB-1~trusty) starting as process 97 ...
+260531  0:03:36 InnoDB: The InnoDB memory heap is disabled
+260531  0:03:36 InnoDB: Mutexes and rw_locks use GCC atomic builtins
+260531  0:03:36 InnoDB: Compressed tables use zlib 1.2.8
+260531  0:03:36 InnoDB: Using Linux native AIO
+260531  0:03:36 InnoDB: Initializing buffer pool, size = 256.0M
+260531  0:03:36 InnoDB: Completed initialization of buffer pool
+InnoDB: The first specified data file ./ibdata1 did not exist:
+InnoDB: a new database to be created!
+260531  0:03:36  InnoDB: Setting file ./ibdata1 size to 10 MB
+InnoDB: Database physically writes the file full: wait...
+260531  0:03:36  InnoDB: Log file ./ib_logfile0 did not exist: new to be created
+InnoDB: Setting log file ./ib_logfile0 size to 5 MB
+InnoDB: Database physically writes the file full: wait...
+260531  0:03:36  InnoDB: Log file ./ib_logfile1 did not exist: new to be created
+InnoDB: Setting log file ./ib_logfile1 size to 5 MB
+InnoDB: Database physically writes the file full: wait...
+InnoDB: Doublewrite buffer not found: creating new
+InnoDB: Doublewrite buffer created
+InnoDB: 127 rollback segment(s) active.
+InnoDB: Creating foreign key constraint system tables
+InnoDB: Foreign key constraint system tables created
+260531  0:03:36  InnoDB: Waiting for the background threads to start
+MySQL init process in progress...
+260531  0:03:37 Percona XtraDB (http://www.percona.com) 5.5.61-MariaDB-38.13 started; log sequence number 0
+260531  0:03:37 [Note] Plugin 'FEEDBACK' is disabled.
+260531  0:03:37 [Warning] 'user' entry 'root@415f553ba0ea' ignored in --skip-name-resolve mode.
+260531  0:03:37 [Warning] 'proxies_priv' entry '@ root@415f553ba0ea' ignored in --skip-name-resolve mode.
+260531  0:03:37 [Note] Event Scheduler: Loaded 0 events
+260531  0:03:37 [Note] mysqld: ready for connections.
+Version: '5.5.64-MariaDB-1~trusty'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  mariadb.org binary distribution
+Warning: Unable to load '/usr/share/zoneinfo/leap-seconds.list' as time zone. Skipping it.
+260531  0:03:39 [Warning] 'proxies_priv' entry '@ root@415f553ba0ea' ignored in --skip-name-resolve mode.
+
+260531  0:03:39 [Note] mysqld: Normal shutdown
+260531  0:03:39 [Note] Event Scheduler: Purging the queue. 0 events
+260531  0:03:39  InnoDB: Starting shutdown...
+260531  0:03:41  InnoDB: Shutdown completed; log sequence number 1597945
+260531  0:03:41 [Note] mysqld: Shutdown complete
+
+
+MySQL init process done. Ready for start up.
+
+260531  0:03:41 [Note] mysqld (mysqld 5.5.64-MariaDB-1~trusty) starting as process 1 ...
+260531  0:03:41 InnoDB: The InnoDB memory heap is disabled
+260531  0:03:41 InnoDB: Mutexes and rw_locks use GCC atomic builtins
+260531  0:03:41 InnoDB: Compressed tables use zlib 1.2.8
+260531  0:03:41 InnoDB: Using Linux native AIO
+260531  0:03:41 InnoDB: Initializing buffer pool, size = 256.0M
+260531  0:03:41 InnoDB: Completed initialization of buffer pool
+260531  0:03:41 InnoDB: highest supported file format is Barracuda.
+260531  0:03:41  InnoDB: Waiting for the background threads to start
+260531  0:03:42 Percona XtraDB (http://www.percona.com) 5.5.61-MariaDB-38.13 started; log sequence number 1597945
+260531  0:03:42 [Note] Plugin 'FEEDBACK' is disabled.
+260531  0:03:42 [Note] Server socket created on IP: '0.0.0.0'.
+260531  0:03:42 [Warning] 'proxies_priv' entry '@ root@415f553ba0ea' ignored in --skip-name-resolve mode.
+260531  0:03:42 [Note] Event Scheduler: Loaded 0 events
+260531  0:03:42 [Note] mysqld: ready for connections.
+Version: '5.5.64-MariaDB-1~trusty'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  mariadb.org binary distribution
+db_logs_tail_end
+candidate_result=0
