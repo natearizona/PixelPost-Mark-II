@@ -1,0 +1,72 @@
+== docker ==
+NAMES                                IMAGE                                     STATUS
+pp-repeat-173-20260531T172345Z-php   pixelpost-restoration-lab-pixelpost-php   Up 1 second
+pp-repeat-173-20260531T172345Z-db    ggmartinez/mysql:5.1                      Up 4 seconds
+== db version ==
+version
+5.1.73
+Variable_name	Value
+sql_mode	
+== version rows ==
+id	upgrade_date	version
+1	2026-05-31 17:23:48	1.4
+2	2026-05-31 17:23:48	1.41
+3	2026-05-31 17:23:48	1.49995
+4	2026-05-31 17:23:48	1.59
+5	2026-05-31 17:23:48	1.6
+6	2026-05-31 17:23:48	1.7
+7	2026-05-31 17:23:48	1.71
+8	2026-05-31 17:23:48	1.72
+9	2026-05-31 17:23:48	1.73
+== config ==
+*************************** 1. row ***************************
+      admin: repeatadmin
+      email: repeat@example.invalid
+   template: simple
+ thumbwidth: 100
+thumbheight: 75
+       exif: T
+== images ==
+*************************** 1. row ***************************
+      id: 1
+datetime: 2026-05-31 03:05:50
+headline: Phase 5 Repeatability Pass
+   image: 20260531172350_phase5-test-image-exif-320x240.jpg
+exif_len: 740
+== exif selected fields ==
+
+Deprecated: mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in Command line code on line 1
+id=1 headline=Phase 5 Repeatability Pass
+MakeIFD0=PixelPost Lab
+ModelIFD0=RestorationCam 173
+ExposureTimeSubIFD=1/125 sec
+FNumberSubIFD=f 5.6
+DateTimeOriginalSubIFD=2008:01:16 19:24:38
+FlashSubIFD=No Flash
+FocalLengthSubIFD=35 mm
+ISOSpeedRatingsSubIFD=200
+== files ==
+/opt/pixelpost-restoration-lab/workspaces/repeat-173-20260531T172345Z/images/20260531172350_phase5-test-image-exif-320x240.jpg 5970 bytes
+/opt/pixelpost-restoration-lab/workspaces/repeat-173-20260531T172345Z/images/index.html 0 bytes
+/opt/pixelpost-restoration-lab/workspaces/repeat-173-20260531T172345Z/thumbnails/index.html 0 bytes
+/opt/pixelpost-restoration-lab/workspaces/repeat-173-20260531T172345Z/thumbnails/thumb_20260531172350_phase5-test-image-exif-320x240.jpg 1195 bytes
+== image sizes ==
+/var/www/html/images/20260531172350_phase5-test-image-exif-320x240.jpg 320x240
+/var/www/html/images/index.html no-size
+/var/www/html/thumbnails/index.html no-size
+/var/www/html/thumbnails/thumb_20260531172350_phase5-test-image-exif-320x240.jpg 100x75
+== page checks ==
+/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z/admin-images.html:				English Title:</strong> Phase 5 Repeatability Pass<br/><strong>File-name:</strong> 20260531172350_phase5-test-image-exif-320x240.jpg<br/>
+/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z/archive.html:<a href="./index.php?showimage=1"><img src="thumbnails/thumb_20260531172350_phase5-test-image-exif-320x240.jpg" alt="Phase 5 Repeatability Pass" title="Phase 5 Repeatability Pass" width="100" height="75" class="thumbnails" /></a>
+/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z/category.html:<a href="./index.php?showimage=1"><img src="thumbnails/thumb_20260531172350_phase5-test-image-exif-320x240.jpg" alt="Phase 5 Repeatability Pass" title="Phase 5 Repeatability Pass" width="100" height="75" class="thumbnails" /></a>
+/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z/front.html:Coming Soon! Nothing to show. No image to show here or they are set to show in future!
+/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z/public-image.html:<meta http-equiv="content-type" name="keywords" content="PhotoBlog,Pixelpost Repeatability Lab,Phase 5 Repeatability Pass,Pixelpost" />
+/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z/public-image.html:<meta http-equiv="content-type" name="description" content="Pixelpost Repeatability Lab-PhotoBlog: Phase 5 Repeatability Pass, Clean repeatability workflow upload." />
+/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z/public-image.html:<img src="images/20260531172350_phase5-test-image-exif-320x240.jpg" alt="Phase 5 Repeatability Pass" title="Phase 5 Repeatability Pass" width="320" height="240" id="photo" />
+/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z/public-image.html:<span class="title">Phase 5 Repeatability Pass</span> - 2026-05-31 03:05:50
+/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z/public-image.html:RestorationCam 173<br />
+/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z/public-image.html:1/125 sec<br />
+/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z/public-image.html:f/5.6<br />
+/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z/public-image.html:Flash: Not Fired<br />
+/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z/upload-response.html:		 <div id='caption'>POSTED: Phase 5 Repeatability Pass</div>
+MYSQLDUMP_OK=1

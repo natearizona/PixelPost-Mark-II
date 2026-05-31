@@ -1,0 +1,12 @@
+RUN_DIR=/opt/pixelpost-restoration-lab/reports/repeat-173-20260531T172345Z
+WORKSPACE=/opt/pixelpost-restoration-lab/workspaces/repeat-173-20260531T172345Z
+DBDIR=/opt/pixelpost-restoration-lab/db/repeat-173-20260531T172345Z
+NETWORK=pp-repeat-173-20260531T172345Z-net
+DB_CONTAINER=pp-repeat-173-20260531T172345Z-db
+PHP_CONTAINER=pp-repeat-173-20260531T172345Z-php
+TEST_IMAGE=/opt/pixelpost-restoration-lab/reports/phase5-test-image-exif-320x240.jpg
+SOURCE_TREE_SHA256=8498093b0f50c9f03cf56191cec1b9fb4f52649aac9451abf85682c6424bd05b
+RAW_ARCHIVE_SHA256=0553abce0a647ff226d117de0893f903697910761aabf680fad5ce3ed693d98a
+MYSQL_IMAGE=sha256:db6468ed7a662a0efd5aee985b9e5a0c5b6c43732bc22c72a950624ba3349ba2
+PHP_IMAGE=sha256:c2c3ea3fcfdfc3ec9c94c63825dce2a188be427b2941144f930dc150008d7578
+PHP_IP=172.16.9.3

@@ -1,0 +1,43 @@
+INSTALL_RUNNER_START
+php_version=5.6.40
+mysql_ext=yes
+gd_ext=yes
+
+Deprecated: mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /reports/install-runner.php on line 62
+db_server=5.1.73
+
+Deprecated: Function eregi_replace() is deprecated in /work/admin/install/install_functions.php on line 44
+
+Warning: Cannot modify header information - headers already sent by (output started at /reports/install-runner.php:57) in /work/admin/install/install_functions.php on line 45
+
+Deprecated: Function eregi_replace() is deprecated in /work/admin/install/install_functions.php on line 54
+
+Deprecated: Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 358
+schema_output_begin
+
+Deprecated: Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 283
+
+Deprecated: Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 284
+
+Notice: Undefined variable: admin_user in /work/admin/install/install_functions.php on line 1017
+<div class='success messageBox'><div>Here are your login credentials. Remember to write them down and keep them in a safe place.<p />Administrator username:&nbsp;<br />Administrator password:&nbsp;&nbsp;repeatability-pass</div></div>
+Deprecated: Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 283
+
+Deprecated: Function ereg_replace() is deprecated in /work/admin/install/install_functions.php on line 284
+
+schema_output_end
+installed_version_after_schema=1.73
+installed_version_after_store_vars=1.73
+tables=pixelpost_addons,pixelpost_catassoc,pixelpost_categories,pixelpost_comments,pixelpost_config,pixelpost_pixelpost,pixelpost_tags,pixelpost_version,pixelpost_visitors
+version_rows_begin
+1|2026-05-31 17:23:48|1.4
+2|2026-05-31 17:23:48|1.41
+3|2026-05-31 17:23:48|1.49995
+4|2026-05-31 17:23:48|1.59
+5|2026-05-31 17:23:48|1.6
+6|2026-05-31 17:23:48|1.7
+7|2026-05-31 17:23:48|1.71
+8|2026-05-31 17:23:48|1.72
+9|2026-05-31 17:23:48|1.73
+version_rows_end
+INSTALL_RUNNER_DONE
