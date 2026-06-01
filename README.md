@@ -8,6 +8,40 @@ Pixelpost was one of the defining photoblogging systems of the early web. Long b
 
 This project exists to ensure that history is not lost.
 
+## Current Status
+
+PixelPost Mark II has completed its first archaeology and restoration cycle.
+
+To date, the project has:
+
+- Recovered and cataloged multiple historical PixelPost releases
+- Established provenance, checksum, and preservation procedures
+- Documented source architecture and runtime requirements
+- Reconstructed historically appropriate runtime environments
+- Restored PixelPost 1.7.3 to operational status
+- Validated browser-based installation and configuration
+- Confirmed image upload, thumbnail generation, and EXIF extraction
+- Verified public theme rendering, archive rendering, and category rendering
+- Demonstrated repeatable restoration from a clean environment
+
+### Key Finding
+
+PixelPost 1.7.3 successfully completes its original photoblogging workflow without source modification when operated on a verified historical runtime consisting of PHP 5.6.40 and MySQL 5.1.73.
+
+### Current Focus
+
+The project is now moving beyond initial restoration and into deeper historical validation, including:
+
+- Earlier PixelPost release testing
+- Historical database import workflows
+- Comment system validation
+- RSS and feed validation
+- Addon and template preservation
+- Recovery of surviving PixelPost community artifacts
+- Reconstruction of historical photoblogs where archival evidence survives
+
+Archaeology remains the priority. Modernization has not yet begun.
+
 ## Project Vision
 
 PixelPost Mark II seeks to:
