@@ -55,6 +55,23 @@ See `restoration/` for all restoration documents.
 | `restoration/clean-room-restoration-runbook.md` | Runbook for clean-room restoration |
 | `restoration/evidence/` | Primary evidence: logs, outputs, screenshots |
 
+## Archaeology Research
+
+Analysis of TalkingTree — an active PixelPost photoblog from 2006 to 2011 — using surviving export XML, image archives, and public corroboration.
+
+| Document | Contents |
+| --- | --- |
+| `archaeology/reconstruction-potential.md` | Reconstruction capability matrix; 85-90% overall score |
+| `archaeology/historical-fidelity-score.md` | 89/100 evidence-weighted fidelity score with per-category rationale |
+| `archaeology/metadata-survivability.md` | Field-by-field survivability: what survives in the PixelPost export XML |
+| `archaeology/wayback-correlation.md` | Wayback Machine captures matched to recovered XML records |
+| `archaeology/chronology-validation.md` | 731 posts from 2006-10-16 through 2011-06-23, validated publicly |
+| `archaeology/comment-survival-audit.md` | 887 comment records: survival rate, field preservation, public evidence |
+| `archaeology/external-footprint.md` | Third-party independent verification of TalkingTree's public existence |
+| `archaeology/public-reputation.md` | Evidence-based reputation summary |
+| `archaeology/award-recovery.md` | External recognition research; honest bounds of recognition claims |
+| `archaeology/missing-artifact-impact.md` | Impact of missing SQL dump, config, and template files |
+
 ## Evidence Policy
 
 Evidence documents record what Pixelpost did during testing.
