@@ -159,27 +159,10 @@ The project is currently focused on archaeology, preservation, and runtime resto
 - `archive/original-pixelpost/`: preserved source archives and extracted inspection copies.
 - `archive/provenance/`: chain-of-custody records and source verification notes.
 - `docs/`: architecture, archaeology, preservation, audit, and restoration documentation.
-- `docker/historical/`: future historical runtime definitions.
+- `docker/historical/`: historical runtime definitions used during restoration testing.
 - `docker/restoration-workspaces/`: disposable first-boot workspaces.
 - `runtime-testing/`: runtime test plans, fixtures, and logs.
 - `tools/`: preservation and audit helper tools.
-
-## Current Repository Rules
-
-Push:
-
-- repository structure
-- documentation
-- preservation policies
-- archaeology logs
-- provenance templates
-
-Do not push:
-
-- unverified source archives
-- restoration workspace copies
-- runtime test artifacts
-- materials lacking provenance verification
 
 PixelPost Mark II is not an attempt to recreate the past exactly as it was.
 
