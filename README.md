@@ -4,9 +4,13 @@
 
 PixelPost Mark II is a long-term digital archaeology, preservation, restoration, and continuation project dedicated to the historic Pixelpost photoblogging platform.
 
-Pixelpost was one of the defining photoblogging systems of the early web. Long before algorithmic feeds, social media timelines, and image-centric platforms dominated online publishing, photographers used Pixelpost to build independent spaces centered around images, metadata, storytelling, and personal expression.
+## About Pixelpost
 
-This project exists to ensure that history is not lost.
+Pixelpost was a free, open-source photoblogging platform built with PHP and MySQL during the early 2000s. It allowed photographers to publish images, captions, categories, archives, and EXIF metadata on independently owned websites during a period when personal publishing was still decentralized.
+
+Thousands of photographers used Pixelpost to create personal photoblogs focused on images rather than social engagement metrics. Development eventually ceased, leaving a large body of websites, templates, addons, and community knowledge scattered across the web.
+
+PixelPost Mark II exists to preserve, document, and better understand that history.
 
 ## Current Status
 
@@ -41,6 +45,18 @@ The project is now moving beyond initial restoration and into deeper historical 
 - Reconstruction of historical photoblogs where archival evidence survives
 
 Archaeology remains the priority. Modernization has not yet begun.
+
+## Key Documents
+
+Start here if you want to understand the restoration effort:
+
+| Document | Purpose |
+| --- | --- |
+| [docs/README.md](docs/README.md) | Documentation index |
+| [docs/restoration/historical-runtime-evaluation.md](docs/restoration/historical-runtime-evaluation.md) | Historical runtime findings |
+| [docs/restoration/database-compatibility-1.7.3.md](docs/restoration/database-compatibility-1.7.3.md) | Compatibility matrix and failures |
+| [docs/restoration/core-workflow-validation-1.7.3.md](docs/restoration/core-workflow-validation-1.7.3.md) | End-to-end workflow proof |
+| [docs/restoration/repeatability-validation-1.7.3.md](docs/restoration/repeatability-validation-1.7.3.md) | Independent repeatability validation |
 
 ## Project Vision
 
