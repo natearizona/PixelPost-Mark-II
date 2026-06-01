@@ -28,6 +28,14 @@ To date, the project has:
 - Verified public theme rendering, archive rendering, and category rendering
 - Demonstrated repeatable restoration from a clean environment
 
+### Restoration Evidence
+
+| Screenshot | What it shows |
+| --- | --- |
+| [Installer completing](docs/restoration/evidence/1.7.3-browser-validation/screenshots/09-installer-configuration.png) | Pixelpost 1.7.3 installer finishing successfully |
+| [Public image page](docs/restoration/evidence/1.7.3-browser-validation/screenshots/17-public-image-page.png) | Live public photoblog rendered from restored instance |
+| [Admin with uploaded images](docs/restoration/evidence/1.7.3-browser-validation/screenshots/20-admin-images-session-persisted.png) | Admin panel with images uploaded and session persisted |
+
 ### Key Finding
 
 PixelPost 1.7.3 successfully completes its original photoblogging workflow without source modification when operated on a verified historical runtime consisting of PHP 5.6.40 and MySQL 5.1.73.
@@ -161,6 +169,7 @@ The project is currently focused on archaeology, preservation, and runtime resto
 - `docs/`: architecture, archaeology, preservation, audit, and restoration documentation.
 - `docker/historical/`: historical runtime definitions used during restoration testing.
 - `docker/restoration-workspaces/`: disposable first-boot workspaces.
+- `planning/`: Phase IV product definition, architecture, and build planning documents.
 - `runtime-testing/`: runtime test plans, fixtures, and logs.
 - `tools/`: preservation and audit helper tools.
 

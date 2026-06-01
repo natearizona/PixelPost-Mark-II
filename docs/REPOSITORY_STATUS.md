@@ -4,7 +4,7 @@
 
 - Remote URL: `git@github.com:natearizona/PixelPost-Mark-II.git`
 - Web URL: `https://github.com/natearizona/PixelPost-Mark-II`
-- Visibility intent: private
+- Visibility: public (made public 2026-06-01)
 - Default branch: `main`
 
 ## Push Status

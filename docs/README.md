@@ -10,6 +10,7 @@ Historical analysis of Pixelpost as a platform, its design, and its era.
 | --- | --- |
 | `ARCHAEOLOGY_LOG.md` | Chronological record of archaeological discoveries |
 | `HISTORICAL_NOTES.md` | Historical context and platform background |
+| `PHOTOBLOG_PHILOSOPHY.md` | Publishing philosophy embedded in Pixelpost — why it was different |
 | `HISTORICAL_RESTORATION_STATUS.md` | Current status of restoration milestones |
 | `HISTORICAL_RUNTIME_MATRIX.md` | Runtime compatibility reference across Pixelpost releases |
 | `HISTORICAL_RUNTIME_RATIONALE.md` | Rationale for historical runtime candidate selection |

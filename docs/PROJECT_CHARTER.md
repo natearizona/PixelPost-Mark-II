@@ -46,13 +46,9 @@ Intended branch strategy:
 - `modernization/*`: future compatibility and continuation work after archaeology has established the behavioral contract.
 - `research/*`: experimental archaeology, audits, source comparison, Wayback harvesting, and ecosystem mapping.
 
-## Private Repository Policy
+## Public Repository
 
-This repository should remain private until:
+This repository is public. All tracked content has passed governance review to verify that no private infrastructure paths, server credentials, or operational details are present.
 
-- recovered archives have chain-of-custody records
-- provenance gaps are documented
-- preservation policy is stable
-- runtime restoration boundaries are understood
-- public release risk has been reviewed
+The private/public boundary is maintained through a separate infrastructure archive. The public doctrine: evidence shows what Pixelpost did. It does not show where tests were executed or how files moved between machines.
 
