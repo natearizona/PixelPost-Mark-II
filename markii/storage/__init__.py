@@ -1,0 +1,2 @@
+"""SQLite archive storage foundation."""
+

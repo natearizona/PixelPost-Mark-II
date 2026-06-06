@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:wp="http://wordpress.org/export/1.0/">
+  <channel>
+    <title>Fixture Photoblog</title>
+    <generator>pixelpost2wordpress</generator>
+    <wp:category>
+      <wp:category_nicename>southern-utah</wp:category_nicename>
+      <wp:cat_name><![CDATA[Southern Utah]]></wp:cat_name>
+    </wp:category>
+    <wp:tag>
+      <wp:tag_slug>desert</wp:tag_slug>
+      <wp:tag_name><![CDATA[desert]]></wp:tag_name>
+    </wp:tag>
+    <item>
+      <title>Red Rock Morning</title>
+      <dc:creator><![CDATA[Nathan Cowlishaw]]></dc:creator>
+      <category domain="category" nicename="southern-utah"><![CDATA[Southern Utah]]></category>
+      <category domain="post_tag" nicename="desert"><![CDATA[desert]]></category>
+      <content:encoded><![CDATA[<img src="http://talkingtree.org/images/20080101010101_red-rock.jpg" alt="Red Rock Morning" /><br />Morning light over red rock.]]></content:encoded>
+      <guid isPermaLink="false">http://talkingtree.org/?p=101</guid>
+      <pubDate>Tue, 01 Jan 2008 01:01 -0600</pubDate>
+      <wp:post_id>101</wp:post_id>
+      <wp:post_date>2008-01-01 01:01:01</wp:post_date>
+      <wp:post_date_gmt>2008-01-01 07:01:01</wp:post_date_gmt>
+      <wp:post_name>red-rock-morning</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_type>post</wp:post_type>
+      <wp:comment>
+        <wp:comment_id>9001</wp:comment_id>
+        <wp:comment_author><![CDATA[Visitor]]></wp:comment_author>
+        <wp:comment_author_email>visitor@example.invalid</wp:comment_author_email>
+        <wp:comment_author_url>http://example.invalid</wp:comment_author_url>
+        <wp:comment_date>2008-01-02 03:04:05</wp:comment_date>
+        <wp:comment_approved>1</wp:comment_approved>
+        <wp:comment_parent>0</wp:comment_parent>
+        <wp:comment_content><![CDATA[Beautiful light.]]></wp:comment_content>
+      </wp:comment>
+      <wp:comment>
+        <wp:comment_id>9002</wp:comment_id>
+        <wp:comment_author><![CDATA[Another Visitor]]></wp:comment_author>
+        <wp:comment_author_email>another@example.invalid</wp:comment_author_email>
+        <wp:comment_author_url></wp:comment_author_url>
+        <wp:comment_date>2008-01-03 04:05:06</wp:comment_date>
+        <wp:comment_approved>0</wp:comment_approved>
+        <wp:comment_parent>9001</wp:comment_parent>
+        <wp:comment_content><![CDATA[I agree.]]></wp:comment_content>
+      </wp:comment>
+    </item>
+    <item>
+      <title>20080101010101_red-rock.jpg</title>
+      <guid isPermaLink="false">http://talkingtree.org/images/20080101010101_red-rock.jpg</guid>
+      <wp:post_id>102</wp:post_id>
+      <wp:post_date>2008-01-01 01:01:01</wp:post_date>
+      <wp:post_name>20080101010101_red-rock.jpg</wp:post_name>
+      <wp:status>inherit</wp:status>
+      <wp:post_parent>101</wp:post_parent>
+      <wp:post_type>attachment</wp:post_type>
+      <wp:attachment_url>http://talkingtree.org/images/20080101010101_red-rock.jpg</wp:attachment_url>
+    </item>
+  </channel>
+</rss>
+
