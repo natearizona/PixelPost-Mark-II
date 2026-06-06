@@ -22,6 +22,10 @@ vendor/
 dist/
 build/
 coverage/
+.venv/
+*.egg-info/
+__pycache__/
+*.pyc
 
 # Local environment files
 .env
