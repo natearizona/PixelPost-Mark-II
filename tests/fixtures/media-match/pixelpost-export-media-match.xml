@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Media matching test fixture.
+  Covers: exact match, high confidence, probable, ambiguous, unmatched post, orphan image, orphan thumbnail.
+-->
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:wp="http://wordpress.org/export/1.0/">
+  <channel>
+    <title>Media Match Fixture</title>
+    <generator>pixelpost2wordpress</generator>
+
+    <!-- POST 101: exact match
+         S1 fires (attachment 201 names the file),
+         S2 fires (body img src names the file),
+         S3 fires (post_parent=101 on attachment 201).
+         Expected: exact -->
+    <item>
+      <title>Red Rock Morning</title>
+      <content:encoded><![CDATA[<img src="http://talkingtree.org/images/20080101010101_red-rock.jpg" alt="Red Rock Morning" /><br />Morning light.]]></content:encoded>
+      <guid isPermaLink="false">http://talkingtree.org/?p=101</guid>
+      <wp:post_id>101</wp:post_id>
+      <wp:post_date>2008-01-01 01:01:01</wp:post_date>
+      <wp:post_name>red-rock-morning</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_type>post</wp:post_type>
+    </item>
+    <item>
+      <title>20080101010101_red-rock.jpg</title>
+      <guid isPermaLink="false">http://talkingtree.org/images/20080101010101_red-rock.jpg</guid>
+      <wp:post_id>201</wp:post_id>
+      <wp:post_date>2008-01-01 01:01:01</wp:post_date>
+      <wp:post_name>20080101010101_red-rock.jpg</wp:post_name>
+      <wp:status>inherit</wp:status>
+      <wp:post_parent>101</wp:post_parent>
+      <wp:post_type>attachment</wp:post_type>
+      <wp:attachment_url>http://talkingtree.org/images/20080101010101_red-rock.jpg</wp:attachment_url>
+    </item>
+
+    <!-- POST 102: high confidence
+         S1 fires (attachment 202 names the file),
+         S3 fires (post_parent=102),
+         S2 absent (empty body — no img tag).
+         Expected: high -->
+    <item>
+      <title>Canyon Light</title>
+      <content:encoded><![CDATA[Canyon at golden hour.]]></content:encoded>
+      <guid isPermaLink="false">http://talkingtree.org/?p=102</guid>
+      <wp:post_id>102</wp:post_id>
+      <wp:post_date>2008-02-02 02:02:02</wp:post_date>
+      <wp:post_name>canyon-light</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_type>post</wp:post_type>
+    </item>
+    <item>
+      <title>20080202020202_canyon-light.jpg</title>
+      <guid isPermaLink="false">http://talkingtree.org/images/20080202020202_canyon-light.jpg</guid>
+      <wp:post_id>202</wp:post_id>
+      <wp:post_date>2008-02-02 02:02:02</wp:post_date>
+      <wp:post_name>20080202020202_canyon-light.jpg</wp:post_name>
+      <wp:status>inherit</wp:status>
+      <wp:post_parent>102</wp:post_parent>
+      <wp:post_type>attachment</wp:post_type>
+      <wp:attachment_url>http://talkingtree.org/images/20080202020202_canyon-light.jpg</wp:attachment_url>
+    </item>
+
+    <!-- POST 103: probable match
+         S2 fires (body img src names the file),
+         No attachment record — S1 and S3 absent.
+         No timestamp corroboration (timestamp mismatch).
+         Expected: probable -->
+    <item>
+      <title>Desert Trail</title>
+      <content:encoded><![CDATA[<img src="http://talkingtree.org/images/20080303030303_desert-trail.jpg" alt="Desert Trail" /><br />Sandy wash.]]></content:encoded>
+      <guid isPermaLink="false">http://talkingtree.org/?p=103</guid>
+      <wp:post_id>103</wp:post_id>
+      <wp:post_date>2008-03-15 12:00:00</wp:post_date>
+      <wp:post_name>desert-trail</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_type>post</wp:post_type>
+    </item>
+
+    <!-- POST 104: ambiguous
+         S2 fires — body references ambig-mesa.jpg,
+         S1 fires — attachment 204 also names ambig-mesa.jpg,
+         BUT two on-disk files match that name in different dirs.
+         Expected: ambiguous -->
+    <item>
+      <title>Mesa View</title>
+      <content:encoded><![CDATA[<img src="http://talkingtree.org/images/ambig-mesa.jpg" alt="Mesa" /><br />Wide mesa.]]></content:encoded>
+      <guid isPermaLink="false">http://talkingtree.org/?p=104</guid>
+      <wp:post_id>104</wp:post_id>
+      <wp:post_date>2008-04-04 04:04:04</wp:post_date>
+      <wp:post_name>mesa-view</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_type>post</wp:post_type>
+    </item>
+    <item>
+      <title>ambig-mesa.jpg</title>
+      <guid isPermaLink="false">http://talkingtree.org/images/ambig-mesa.jpg</guid>
+      <wp:post_id>204</wp:post_id>
+      <wp:post_date>2008-04-04 04:04:04</wp:post_date>
+      <wp:post_name>ambig-mesa.jpg</wp:post_name>
+      <wp:status>inherit</wp:status>
+      <wp:post_parent>104</wp:post_parent>
+      <wp:post_type>attachment</wp:post_type>
+      <wp:attachment_url>http://talkingtree.org/images/ambig-mesa.jpg</wp:attachment_url>
+    </item>
+
+    <!-- POST 105: unmatched
+         No attachment, body has no img tag.
+         Expected: unmatched -->
+    <item>
+      <title>Text Only Post</title>
+      <content:encoded><![CDATA[No image here. Just words.]]></content:encoded>
+      <guid isPermaLink="false">http://talkingtree.org/?p=105</guid>
+      <wp:post_id>105</wp:post_id>
+      <wp:post_date>2008-05-05 05:05:05</wp:post_date>
+      <wp:post_name>text-only-post</wp:post_name>
+      <wp:status>publish</wp:status>
+      <wp:post_type>post</wp:post_type>
+    </item>
+
+  </channel>
+</rss>

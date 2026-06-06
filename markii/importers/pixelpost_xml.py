@@ -28,6 +28,7 @@ class ParsedAttachment:
     attachment_url: str
     filename_candidate: str
     guid: str
+    post_parent: str
     source_file: str
 
     def to_dict(self):
@@ -201,6 +202,7 @@ def _parse_attachment(item: ET.Element, file_path: Path, summary: ParseSummary) 
         attachment_url=attachment_url,
         filename_candidate=_filename_from_url(attachment_url),
         guid=_text(_first_child(item, "guid")),
+        post_parent=_text(_first_child(item, "post_parent")),
         source_file=str(file_path),
     )
 

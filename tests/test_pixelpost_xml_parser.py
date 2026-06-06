@@ -34,6 +34,7 @@ class PixelPostXmlParserTests(unittest.TestCase):
         attachment = result.attachments[0]
         self.assertEqual(attachment.legacy_id, "102")
         self.assertEqual(attachment.filename_candidate, "20080101010101_red-rock.jpg")
+        self.assertEqual(attachment.post_parent, "101")
         self.assertEqual(attachment.guid, "http://talkingtree.org/images/20080101010101_red-rock.jpg")
 
         comment = result.comments[1]

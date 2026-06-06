@@ -3,9 +3,11 @@ from pathlib import Path
 
 from markii.importers.pixelpost_xml import parse_pixelpost_exports
 from markii.media.inventory import inventory_sources
+from markii.media.matcher import match_media
 from markii.provenance.inventory_archive import record_inventory
 from markii.reports.archive import write_archive_record_reports
 from markii.reports.inventory import write_inventory_reports
+from markii.reports.media_match import write_media_match_reports
 from markii.reports.pixelpost_parse import write_pixelpost_parse_reports
 
 
@@ -76,6 +78,28 @@ def main(argv=None):
         help="Directory where pixelpost-parse-report.md and pixelpost-parse-report.json are written.",
     )
 
+    match_parser = subparsers.add_parser(
+        "match-media",
+        help="Match parsed XML posts to on-disk media artifacts.",
+    )
+    match_parser.add_argument(
+        "--xml",
+        action="append",
+        required=True,
+        help="PixelPost XML export file or directory. May be supplied more than once.",
+    )
+    match_parser.add_argument(
+        "--media",
+        action="append",
+        required=True,
+        help="Directory containing JPEG images. May be supplied more than once.",
+    )
+    match_parser.add_argument(
+        "--output",
+        required=True,
+        help="Directory where media-match-report.md and media-match-report.json are written.",
+    )
+
     args = parser.parse_args(argv)
 
     if args.command == "inventory-media":
@@ -121,6 +145,24 @@ def main(argv=None):
         print(f"Parsed {len(result.tags)} tags")
         print(f"Wrote {output / 'pixelpost-parse-report.md'}")
         print(f"Wrote {output / 'pixelpost-parse-report.json'}")
+        return 0 if result.status == "completed" else 2
+
+    if args.command == "match-media":
+        xml_sources = [Path(x) for x in args.xml]
+        media_sources = [Path(m) for m in args.media]
+        output = Path(args.output)
+        parse_result = parse_pixelpost_exports(xml_sources)
+        inventory = inventory_sources(media_sources)
+        result = match_media(parse_result, inventory)
+        write_media_match_reports(result, output)
+        s = result.summary
+        print(f"Posts: {s.posts_total}")
+        print(f"Exact: {s.matches_exact}  High: {s.matches_high}  Probable: {s.matches_probable}")
+        print(f"Ambiguous: {s.matches_ambiguous}  Unmatched: {s.unmatched_posts}")
+        print(f"Thumbnails matched: {s.thumbnails_matched}")
+        print(f"Orphan images: {s.orphan_images}  Orphan thumbnails: {s.orphan_thumbnails}")
+        print(f"Wrote {output / 'media-match-report.md'}")
+        print(f"Wrote {output / 'media-match-report.json'}")
         return 0 if result.status == "completed" else 2
 
     parser.error(f"Unknown command: {args.command}")
