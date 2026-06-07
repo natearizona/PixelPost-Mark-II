@@ -5,6 +5,7 @@ from markii.importers.pixelpost_xml import parse_pixelpost_exports
 from markii.media.inventory import inventory_sources
 from markii.media.matcher import match_media
 from markii.provenance.inventory_archive import record_inventory
+from markii.provenance.match_archive import record_matches
 from markii.reports.archive import write_archive_record_reports
 from markii.reports.inventory import write_inventory_reports
 from markii.reports.media_match import write_media_match_reports
@@ -100,6 +101,38 @@ def main(argv=None):
         help="Directory where media-match-report.md and media-match-report.json are written.",
     )
 
+    write_matches_parser = subparsers.add_parser(
+        "write-matches",
+        help="Run media matching and persist results to the SQLite archive.",
+    )
+    write_matches_parser.add_argument(
+        "--xml",
+        action="append",
+        required=True,
+        help="PixelPost XML export file or directory. May be supplied more than once.",
+    )
+    write_matches_parser.add_argument(
+        "--media",
+        action="append",
+        required=True,
+        help="Directory containing JPEG images. May be supplied more than once.",
+    )
+    write_matches_parser.add_argument(
+        "--archive",
+        required=True,
+        help="SQLite archive path to create or open.",
+    )
+    write_matches_parser.add_argument(
+        "--output",
+        required=True,
+        help="Directory where media-match-report.md and media-match-report.json are written.",
+    )
+    write_matches_parser.add_argument(
+        "--profile",
+        default=None,
+        help="Optional profile name recorded with the match run.",
+    )
+
     args = parser.parse_args(argv)
 
     if args.command == "inventory-media":
@@ -164,6 +197,33 @@ def main(argv=None):
         print(f"Wrote {output / 'media-match-report.md'}")
         print(f"Wrote {output / 'media-match-report.json'}")
         return 0 if result.status == "completed" else 2
+
+    if args.command == "write-matches":
+        xml_paths = [Path(x) for x in args.xml]
+        media_paths = [Path(m) for m in args.media]
+        archive_path = Path(args.archive)
+        output = Path(args.output)
+        # Full inventory includes both XML and media so every artifact has a row
+        full_inventory = inventory_sources(xml_paths + media_paths)
+        parse_result = parse_pixelpost_exports(xml_paths)
+        match_result = match_media(parse_result, full_inventory)
+        archive_result = record_matches(
+            match_result, full_inventory, archive_path, profile=args.profile
+        )
+        write_media_match_reports(match_result, output)
+        s = match_result.summary
+        print(f"Posts: {s.posts_total}")
+        print(f"Exact: {s.matches_exact}  High: {s.matches_high}  Probable: {s.matches_probable}")
+        print(f"Ambiguous: {s.matches_ambiguous}  Unmatched: {s.unmatched_posts}")
+        print(f"Thumbnails matched: {s.thumbnails_matched}")
+        print(f"Orphan images: {s.orphan_images}  Orphan thumbnails: {s.orphan_thumbnails}")
+        print(f"Archive: {archive_path}")
+        print(f"Import run: {archive_result.import_run_id}")
+        print(f"Match events written: {archive_result.match_event_count}")
+        print(f"Orphan events written: {archive_result.orphan_event_count}")
+        print(f"Wrote {output / 'media-match-report.md'}")
+        print(f"Wrote {output / 'media-match-report.json'}")
+        return 0 if match_result.status == "completed" else 2
 
     parser.error(f"Unknown command: {args.command}")
     return 2
