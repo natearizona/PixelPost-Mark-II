@@ -56,6 +56,12 @@ docker/restoration-workspaces/**/images/*
 docker/restoration-workspaces/**/thumbnails/*
 !docker/restoration-workspaces/**/thumbnails/index.html
 
+# PixelPost II runtime data
+pixelpostii/uploads/
+pixelpostii/photoblog.db
+pixelpostii/photoblog.db-shm
+pixelpostii/photoblog.db-wal
+
 # Keep historical archives, extracted source trees, and provenance docs visible to git.
 !archive/
 !archive/original-pixelpost/

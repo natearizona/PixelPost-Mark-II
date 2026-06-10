@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}New Post — PixelPost II{% endblock %}
+{% block content %}
+<div class="form-wrap">
+  <h1>New Post</h1>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post" enctype="multipart/form-data">
+    <div class="field">
+      <label for="image">Photograph</label>
+      <input type="file" id="image" name="image" accept="image/*" required>
+    </div>
+    <div class="field">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" required autofocus>
+    </div>
+    <div class="field">
+      <label for="body">Story</label>
+      <textarea id="body" name="body" rows="8"></textarea>
+    </div>
+    <div class="actions">
+      <button type="submit" name="action" value="publish">Publish</button>
+      <button type="submit" name="action" value="draft" class="secondary">Save Draft</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

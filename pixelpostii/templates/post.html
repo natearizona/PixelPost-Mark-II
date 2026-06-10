@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{% if post %}{{ post.title }} — PixelPost II{% else %}PixelPost II{% endif %}{% endblock %}
+{% block content %}
+{% if post %}
+  <article class="post">
+    <figure>
+      <img src="{{ url_for('uploaded_file', filename=post.image_path) }}" alt="{{ post.title }}">
+    </figure>
+    <h1>{{ post.title }}</h1>
+    {% if post.body %}
+      <div class="body">{{ post.body }}</div>
+    {% endif %}
+    <time datetime="{{ post.published_at }}">{{ post.published_at[:10] if post.published_at }}</time>
+  </article>
+  <nav class="pagination">
+    {% if prev_post %}
+      <a href="{{ url_for('view_post', slug=prev_post.slug) }}" class="prev">&larr; {{ prev_post.title }}</a>
+    {% else %}
+      <span></span>
+    {% endif %}
+    {% if next_post %}
+      <a href="{{ url_for('view_post', slug=next_post.slug) }}" class="next">{{ next_post.title }} &rarr;</a>
+    {% endif %}
+  </nav>
+{% else %}
+  <div class="empty">
+    <p>No photographs published yet.</p>
+    {% if session.logged_in %}
+      <a href="{{ url_for('new_post') }}">Publish the first photograph.</a>
+    {% endif %}
+  </div>
+{% endif %}
+{% endblock %}

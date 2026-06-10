@@ -1,0 +1,230 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #111;
+  color: #e0e0e0;
+  line-height: 1.65;
+}
+
+/* ── Header ── */
+
+header {
+  padding: 0.85rem 2rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.site-name {
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e0e0e0;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.nav-links a {
+  color: #888;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-family: system-ui, sans-serif;
+}
+
+.nav-links a:hover { color: #e0e0e0; }
+
+/* ── Main ── */
+
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+/* ── Post ── */
+
+.post figure {
+  margin: 0 0 1.75rem;
+}
+
+.post img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.post h1 {
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin: 0 0 0.6rem;
+  letter-spacing: 0.01em;
+}
+
+.post .body {
+  white-space: pre-wrap;
+  color: #bbb;
+  font-size: 0.975rem;
+  margin-top: 0.5rem;
+}
+
+.post time {
+  display: block;
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
+  color: #666;
+  font-family: system-ui, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* ── Pagination ── */
+
+.pagination {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 1.25rem;
+}
+
+.pagination a {
+  color: #777;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-family: system-ui, sans-serif;
+  max-width: 45%;
+}
+
+.pagination a:hover { color: #e0e0e0; }
+
+/* ── Empty state ── */
+
+.empty {
+  text-align: center;
+  padding: 5rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.empty a {
+  display: block;
+  margin-top: 0.75rem;
+  color: #777;
+  text-decoration: none;
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+}
+
+.empty a:hover { color: #e0e0e0; }
+
+/* ── Forms ── */
+
+.form-wrap {
+  max-width: 520px;
+}
+
+.form-wrap h1 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.field {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: system-ui, sans-serif;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+textarea {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #e0e0e0;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.975rem;
+  font-family: Georgia, serif;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border-color: #555;
+}
+
+input[type="file"] {
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* ── Buttons ── */
+
+.actions {
+  display: flex;
+  gap: 0.85rem;
+  margin-top: 1.75rem;
+}
+
+button {
+  padding: 0.5rem 1.4rem;
+  background: #e0e0e0;
+  color: #111;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: system-ui, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+button:hover { background: #fff; }
+
+button.secondary {
+  background: transparent;
+  color: #666;
+  border: 1px solid #333;
+}
+
+button.secondary:hover {
+  color: #e0e0e0;
+  border-color: #666;
+}
+
+/* ── Error ── */
+
+.error {
+  color: #e07070;
+  font-size: 0.875rem;
+  margin-bottom: 1.25rem;
+  font-family: system-ui, sans-serif;
+}

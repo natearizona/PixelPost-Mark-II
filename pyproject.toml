@@ -7,14 +7,17 @@ name = "markii"
 version = "0.1.0"
 description = "PixelPost Mark II — archaeology, import, and restoration toolkit"
 requires-python = ">=3.9"
-dependencies = []
+dependencies = [
+    "flask>=3.0",
+]
 
 [project.scripts]
 markii = "markii.cli.main:main"
+pixelpostii = "pixelpostii.app:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["markii*"]
+include = ["markii*", "pixelpostii*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
