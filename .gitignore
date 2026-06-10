@@ -62,10 +62,11 @@ pixelpostii/photoblog.db
 pixelpostii/photoblog.db-shm
 pixelpostii/photoblog.db-wal
 
-# Keep historical archives, extracted source trees, and provenance docs visible to git.
-!archive/
-!archive/original-pixelpost/
-!archive/original-pixelpost/raw/
-!archive/original-pixelpost/extracted/
+# Historical archive and data directories — excluded from public repo.
+# These are private local storage only. Do not stage without explicit authorization.
+archive/original-pixelpost/
+data/
+
+# Provenance records are the exception — keep them visible to git.
 !archive/provenance/
 !archive/provenance/**

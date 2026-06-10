@@ -164,12 +164,12 @@ publishing history.
 
 Location on recovery drive:
 ```
-/Volumes/LaCie/.../DesertDream-Archeology/DesertDream1/
+<local-recovery-volume>/DesertDream-Archeology/DesertDream1/
 ```
 
-Copied to:
+Copied to working archive:
 ```
-/Users/nathanarizona/Documents/PixelPost2 - TalkingTree/DesertDream-Archeology/DesertDream1/
+<private-local-path>/DesertDream-Archeology/DesertDream1/
 ```
 
 Files: 19 (PHP templates, CSS, JS, PNG assets)
